@@ -1,0 +1,72 @@
+{
+  "name": "vue-vuex-typescript-skeleton",
+  "version": "1.0.0",
+  "description": "vuebased webapp skeleton : vue,vuex,vue-router,webpack,karma",
+  "main": "src/main.ts",
+  "scripts": {
+    "setup": "typings install",
+    "dev": "node build/dev-server.js",
+    "build": "rimraf dist && webpack --progress --hide-modules --config build/webpack.prod.conf.js",
+    "test": "karma start build/karma.conf.js  --single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namazu510/vue-vuex-typescript-skeleton.git"
+  },
+  "author": "namazu510",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/namazu510/vue-vuex-typescript-skeleton/issues"
+  },
+  "homepage": "https://github.com/namazu510/vue-vuex-typescript-skeleton#readme",
+  "dependencies": {
+    "vue": "^1.0.26",
+    "vue-router": "^0.7.10",
+    "vuex": "^1.0.0-rc.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-es2015": "^6.13.2",
+    "connect-history-api-fallback": "^1.3.0",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.5.0",
+    "eslint-friendly-formatter": "^2.0.6",
+    "eslint-loader": "^1.5.0",
+    "eventsource-polyfill": "^0.9.6",
+    "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "function-bind": "^1.1.0",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.22.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.26",
+    "karma-typescript-preprocessor": "^0.2.1",
+    "karma-webpack": "^1.8.0",
+    "node-sass": "^3.10.0",
+    "path": "^0.12.7",
+    "phantomjs-prebuilt": "^2.1.12",
+    "pug": "^2.0.0-beta6",
+    "pug-html-loader": "^1.0.8",
+    "rimraf": "^2.5.4",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^0.8.2",
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.3",
+    "typings": "^1.3.3",
+    "url-loader": "^0.5.7",
+    "vue-loader": "^9.2.2",
+    "vue-typed": "0.0.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-middleware": "^1.8.3",
+    "webpack-hot-middleware": "^2.12.2"
+  }
+}
