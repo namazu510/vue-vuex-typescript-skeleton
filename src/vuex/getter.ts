@@ -1,5 +1,9 @@
-import {State} from './store';
+import {State} from './state';
+import {GetterTree} from 'vuex';
 
-export function getCount(state : State) : number {
-    return state.count;
+// State , RootState
+const getters : GetterTree<State,State> = {
+
 }
+
+export default getters;

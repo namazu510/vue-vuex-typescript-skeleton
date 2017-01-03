@@ -1,7 +1,9 @@
 import Vue = require('vue');
 import VueRouter = require('vue-router');
 import {App} from './app';
-import {configureRouter} from './router-config';
+import store from './vuex/index';
+import router from './router/index';
+import {sync} from 'vuex-router-sync';
 
 /**
  * Application Main Entry Point here!!
@@ -9,11 +11,19 @@ import {configureRouter} from './router-config';
  * vue init, router init and config
  */
 
-Vue.use(VueRouter);
-const router = new VueRouter<App>();
-configureRouter(router);
+// router-vuex-sync
+sync(store, router);
 
-router.start(App, '#app');
-export default router;
+// instance
+const app = new Vue({
+    router,
+    store,
+    components: {
+        App
+    }
+});
 
+app.$mount('#app');
+
+export { app, router, store }
 

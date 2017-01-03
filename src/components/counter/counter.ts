@@ -1,25 +1,14 @@
-import {Component,Action,Getter} from 'vue-typed';
-import {getCount} from '../../vuex/getter';
-import {Actions} from '../../vuex/actions';
-import router from '../../main';
+import Component from 'vue-class-component';
+import Vue  = require('vue');
+import {MutationTypes} from '../../vuex/mutation-types';
 /**
  * Counter Component Vuex used
  */
 @Component({
-    template: require('./counter.pug'),
+    template: require('./counter.pug')
 })
-export class Counter {
-
-    @Getter(getCount)
-    count: number;
-
-    @Action(Actions.countUp)
+export class Counter extends Vue {
     countUp() {
-
+        this.$store.dispatch(MutationTypes.COUNT_UP);
     }
-
-    back() {
-        router.go('index');
-    }
-
 }

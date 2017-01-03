@@ -1,13 +1,12 @@
-import store from './vuex/store';
-import {Component} from 'vue-typed';
+import Component from 'vue-class-component';
+import Vue = require('vue');
 /*
  * App Top Level Component
  */
 require('./app.scss');
 @Component({
-    template: require('./app.pug'),
-    store: store
+    template: require('./app.pug')
 })
-export class App {
+export class App extends Vue {
 
 }

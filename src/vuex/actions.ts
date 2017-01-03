@@ -1,13 +1,9 @@
-import {Action} from '~vuex/index';
-import {MutationTypes} from './mutation-types';
-import {State} from './store';
+import {State} from './state';
+import {ActionTree} from 'vuex';
 
-export class Actions {
 
-    static countUp: Action<State> =
-        ({dispatch}:any) => {
-            dispatch(MutationTypes.COUNT_UP);
-        };
+const actions : ActionTree<State,State> = {
 
 }
 
+export default actions;

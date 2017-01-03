@@ -1,5 +1,5 @@
-import {Component} from 'vue-typed';
-import router from '../../main';
+import Component from 'vue-class-component';
+import Vue = require('vue');
 /**
  * IndexPage Component
  */
@@ -7,8 +7,8 @@ require('./index.scss');
 @Component({
     template: require('./index.pug')
 })
-export class Index {
+export class Index extends Vue{
     goCounter() {
-        router.go('counter');
+        this.$router.push('counter');
     }
 }
