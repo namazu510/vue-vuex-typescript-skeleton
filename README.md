@@ -8,6 +8,8 @@ vuebased webapp skeleton : vue,vuex,vue-router,webpack,karma
 * vue-router
 * webpack
 * karma
+* pug
+* scss
 
 ## install , run dev-mode
 ```bash
