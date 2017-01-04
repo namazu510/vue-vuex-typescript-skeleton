@@ -5,7 +5,7 @@ import Vue = require('vue');
  */
 require('./app.scss');
 @Component({
-    template: require('./app.pug')
+    template: require('./app.pug'),
 })
 export class App extends Vue {
 

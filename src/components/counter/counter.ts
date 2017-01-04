@@ -5,10 +5,17 @@ import {MutationTypes} from '../../vuex/mutation-types';
  * Counter Component Vuex used
  */
 @Component({
-    template: require('./counter.pug')
+    name: 'counter',
+    template: require('./counter.pug'),
 })
 export class Counter extends Vue {
-    countUp() {
+    private back() {
+        this.$router.back();
+    }
+    private countUp() {
         this.$store.dispatch(MutationTypes.COUNT_UP);
+    }
+    get count() {
+        return this.$store.state.count;
     }
 }

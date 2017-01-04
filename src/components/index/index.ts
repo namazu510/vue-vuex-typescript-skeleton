@@ -5,10 +5,11 @@ import Vue = require('vue');
  */
 require('./index.scss');
 @Component({
-    template: require('./index.pug')
+    name: 'index',
+    template: require('./index.pug'),
 })
-export class Index extends Vue{
-    goCounter() {
+export class Index extends Vue {
+    private goCounter() {
         this.$router.push('counter');
     }
 }

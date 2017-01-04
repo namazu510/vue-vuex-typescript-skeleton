@@ -1,29 +1,26 @@
 import Vue = require('vue');
-import VueRouter = require('vue-router');
-import {App} from './app';
-import store from './vuex/index';
-import router from './router/index';
 import {sync} from 'vuex-router-sync';
+import {App} from './app';
+import router from './router/index';
+import store from './vuex/index';
 
 /**
  * Application Main Entry Point here!!
- *
- * vue init, router init and config
  */
 
 // router-vuex-sync
 sync(store, router);
 
-// instance
+// vue-root-instance
 const app = new Vue({
+    components: {
+        App,
+    },
     router,
     store,
-    components: {
-        App
-    }
+    template: `<app></app>`,
 });
 
 app.$mount('#app');
 
 export { app, router, store }
-

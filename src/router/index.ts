@@ -1,5 +1,5 @@
-import {Index} from '../components/index/index';
 import {Counter} from '../components/counter/counter';
+import {Index} from '../components/index/index';
 import Vue = require('vue');
 import Router = require('vue-router');
 
@@ -9,21 +9,22 @@ const router = new Router({
     mode: 'history',
     routes: [
         {
-            path: '/',
             name: 'root',
-            redirect: 'index'
+            path: '/',
+            redirect: 'index',
         },
         {
-            path: '/index',
             component: Index,
-            name : 'index'
+            name: 'index',
+            path: '/index',
+
         },
         {
-            path: 'counter',
             component: Counter,
-            name : 'counter'
-        }
-    ]
+            name: 'counter',
+            path: '/counter',
+        },
+    ],
 });
 
 export default router;

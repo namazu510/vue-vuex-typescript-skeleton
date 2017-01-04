@@ -4,7 +4,6 @@
   "description": "vuebased webapp skeleton : vue,vuex,vue-router,webpack,karma",
   "main": "src/main.ts",
   "scripts": {
-    "setup": "typings install",
     "dev": "node build/dev-server.js",
     "build": "rimraf dist && webpack --progress --hide-modules --config build/webpack.prod.conf.js",
     "test": "karma start build/karma.conf.js  --single-run"
@@ -64,11 +63,12 @@
     "style-loader": "^0.13.1",
     "ts-loader": "^1.3.3",
     "tslint": "^4.2.0",
+    "tslint-loader": "^3.3.0",
     "typescript": "^2.0.3",
     "url-loader": "^0.5.7",
     "vue-class-component": "^4.4.0",
     "vue-loader": "^10.0.2",
-    "webpack": "^1.13.2",
+    "webpack": "^2.1.0-beta.26",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2"
   }

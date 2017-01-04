@@ -3,7 +3,7 @@
 
 export class State {
 
-    count : number;
+    public count: number;
 
     // state initializer
     constructor() {

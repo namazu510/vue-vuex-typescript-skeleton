@@ -10,28 +10,6 @@ var SOURCE_MAP = true
 
 config.devtool = SOURCE_MAP ? 'source-map' : false
 
-// css file exports other files
-
-// generate loader string to be used with extract text plugin
-function generateExtractLoaders (loaders) {
-  return loaders.map(function (loader) {
-    return loader + '-loader' + (SOURCE_MAP ? '?sourceMap' : '')
-  }).join('!')
-}
-config.module.loaders.shift()
-config.module.loaders.shift()
-config.module.loaders.push([
-  {
-    test: /\.css$/,
-    loader: ExtractTextPlugin.extract('style-loader', generateExtractLoaders(['css']))
-  },
-  {
-    test: /\.scss$/,
-    loader: ExtractTextPlugin.extract('style-loader', generateExtractLoaders(['css', 'sass']))
-  }
-])
-
-
 // webpack plugin setting
 config.plugins = (config.plugins || []).concat([
   // http://vuejs.github.io/vue-loader/workflow/production.html
@@ -40,16 +18,15 @@ config.plugins = (config.plugins || []).concat([
       NODE_ENV: '"production"'
     }
   }),
-  // ES6 cord unsupported UglifyJSPlugin
-  // one of these days supported
-  // new webpack.optimize.UglifyJsPlugin({
-  //   compress: {
-  //     warnings: false
-  //   }
-  // }),
-  new webpack.optimize.OccurenceOrderPlugin(),
-  // extract css into its own file
-  new ExtractTextPlugin('[name].[contenthash].css'),
+  // this is needed in webpack 2 for minifying CSS
+  new webpack.LoaderOptionsPlugin({
+    minimize: true
+  }),
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  }),
   // generate dist index.html with correct asset hash for caching.
   // you can customize output by editing /src/index.html
   // see https://github.com/ampedandwired/html-webpack-plugin
