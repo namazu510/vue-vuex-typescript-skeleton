@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -29,12 +30,15 @@ module.exports = {
     noParse: /es6-promise\.js$/, // avoid webpack shimming process
     rules: [
       {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader'
-      },
-      {
-        test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader'
+        test: /\.(css|scss)$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader:[
+            'css-loader',
+            'sass-loader',
+            'postcss-loader'
+          ]
+        })
       },
       {
         test: /\.pug$/,
@@ -92,5 +96,15 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor'
     }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: [
+          require('autoprefixer')({
+            browsers: ['last 2 versions']
+          })
+        ]
+      }
+    }),
+    new ExtractTextPlugin({ filename: '[name].[hash].css', disable: false, allChunks: true })
   ]
 }
