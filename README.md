@@ -19,7 +19,8 @@ npm run dev #lunch server on port:8080
 ```
 ## test
 ```bash
-npm run test
+npm run test # single-run
+npm run test-watch # auto-watch
 ```
 
 ## build
