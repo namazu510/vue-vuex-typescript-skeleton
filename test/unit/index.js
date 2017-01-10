@@ -1,6 +1,9 @@
 // Polyfill fn.bind() for PhantomJS
-/* eslint-disable no-extend-native */
+/* eslint-disable */
 Function.prototype.bind = require('function-bind')
+
+// Polyfill es6-promise
+require('es6-promise').polyfill()
 
 
 // require all test files (files that ends with .spec)

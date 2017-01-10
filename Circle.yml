@@ -1,0 +1,20 @@
+machine:
+    node:
+      version: 7.2.0
+    post:
+      - npm install -g npm
+      - npm install -g yarn
+    timezone: Asia/Tokyo
+
+dependencies:
+    cache_directories:
+      - ~/cache
+    override:
+      - mkdir -p ~/cache
+      # node_moduelsのコピーとかさせる
+      - bash circle.sh
+test:
+    override:
+      #テストコマンドの上書き ここにテストのコマンドを
+      - npm run build
+      - npm run test

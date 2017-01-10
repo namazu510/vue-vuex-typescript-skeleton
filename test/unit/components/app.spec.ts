@@ -1,15 +1,9 @@
-import {App} from '../../../src/app';
+import {app} from '../../../src/main';
 import Vue = require('vue');
 
-describe('AppComponent-Test', () => {
-
-    const vm = new Vue({
-        template: '<div><app></app></div>',
-        components: {App}
-    }).$mount();
-
+describe('ページ全体のテスト', () => {
 
     it('AppRendered', () => {
-        expect(vm.$el.querySelector('#index')).toBeDefined();
+        expect(app.$el.querySelector('#index')).toBeDefined();
     });
 });

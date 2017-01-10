@@ -4,6 +4,12 @@
 var webpackConf = require('./webpack.base.conf')
 delete webpackConf.entry
 
+// CommonChnksPluginはTest時によろしくない.
+// https://github.com/webpack/karma-webpack/issues/24
+const commonsChunkPluginIndex = webpackConf.plugins.findIndex(plugin => plugin.chunkNames);
+webpackConf.plugins.splice(commonsChunkPluginIndex, 1);
+
+
 module.exports = function (config) {
   config.set({
     browsers: ['PhantomJS'],
